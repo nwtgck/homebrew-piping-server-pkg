@@ -9,7 +9,12 @@ def digest(url)
 end
 
 def generate()
-  version = "1.8.0-1"
+  # Version without "v" prefix
+  version = ENV["PIPING_SERVER_PKG_VERSION"]
+  if version.nil?
+    raise "$PIPING_SERVER_PKG_VERSION not defined"
+  end
+  # NOTE: formula is written for the latest "piping-server-pkg", not support all `version`.
   <<EOF
 # typed: false
 # frozen_string_literal: true
