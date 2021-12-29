@@ -1,0 +1,35 @@
+name: Generate formula
+
+on:
+  workflow_dispatch:
+    inputs:
+      piping-server-pkg-version:
+        description: 'version without "v" prefix (e.g. 1.8.0-1)'
+        required: true
+
+jobs:
+  generate_formula:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        set -xeu
+        export PIPING_SERVER_PKG_VERSION=${{ github.event.inputs.piping-server-pkg-version }}
+        BRANCH_NAME="generate-formula/${PIPING_SERVER_PKG_VERSION}"
+        git checkout -b $BRANCH_NAME
+        
+        ruby scripts/generate.rb
+
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        if [ -n "$(git status --porcelain)" ]; then
+          git add piping-server.rb
+          git commit -m "piping-server-pkg $PIPING_SERVER_PKG_VERSION"
+          git push -fu origin $BRANCH_NAME
+          # NOTE: PR created by secrets.GITHUB_TOKEN does not trigger another GitHub Actions
+          gh pr create --title "piping-server-pkg ${PIPING_SERVER_PKG_VERSION}" --body="https://github.com/nwtgck/piping-server-pkg/releases/tag/v${PIPING_SERVER_PKG_VERSION}"
+        else
+          echo "formula is up to date"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
