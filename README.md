@@ -7,7 +7,7 @@ brew install nwtgck/piping-server-pkg/piping-server
 ```
 
 
-## Maintain: Generate formulate
+## Maintain: Generate formula
 
 Use [GitHub Actions workflow_dispatch](https://github.com/nwtgck/homebrew-piping-server-pkg/actions/workflows/generate-formula.yml)
 
