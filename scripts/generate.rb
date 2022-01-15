@@ -23,8 +23,7 @@ class PipingServer < Formula
   desc "Piping Server"
   homepage "https://github.com/nwtgck/piping-server-pkg"
   version "#{version}"
-  bottle :unneeded
-
+  
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/nwtgck/piping-server-pkg/releases/download/v#{version}/piping-server-pkg-mac-x64.tar.gz"
     sha256 "#{digest("https://github.com/nwtgck/piping-server-pkg/releases/download/v#{version}/piping-server-pkg-mac-x64.tar.gz")}"
