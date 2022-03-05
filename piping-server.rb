@@ -4,23 +4,23 @@
 class PipingServer < Formula
   desc "Piping Server"
   homepage "https://github.com/nwtgck/piping-server-pkg"
-  version "1.11.1"
+  version "1.12.0"
   
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.11.1/piping-server-pkg-mac-x64.tar.gz"
-    sha256 "408867eaa5fdcec04e74b7b1093783a39057857adfd2af25ce7fa76ad9eb94d3"
+    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.12.0/piping-server-pkg-mac-x64.tar.gz"
+    sha256 "36585aecf49e956310842c4718696606389386e124f30e44dfc3045cb8d767f3"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.11.1/piping-server-pkg-mac-arm64.tar.gz"
-    sha256 "4c6e91276f36fb31347e69159bff275065e717ffbd499140d18be1552c68f247"
+    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.12.0/piping-server-pkg-mac-arm64.tar.gz"
+    sha256 "5d5068551336191d5b8eb5b7e35b98952d5b5d8933afa2acb2a49939d1d81239"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.11.1/piping-server-pkg-linuxstatic-x64.tar.gz"
-    sha256 "90dd06f7aafc5fd945ecd83e5abd0e0ac166e158afaf8f720d73530c39b51fc5"
+    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.12.0/piping-server-pkg-linuxstatic-x64.tar.gz"
+    sha256 "c791f27a4188a88a916cf51e61d12168b5dfd14b60d73eb3eba68f97ae01779c"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.11.1/piping-server-pkg-linuxstatic-arm64.tar.gz"
-    sha256 "90dd06f7aafc5fd945ecd83e5abd0e0ac166e158afaf8f720d73530c39b51fc5"
+    url "https://github.com/nwtgck/piping-server-pkg/releases/download/v1.12.0/piping-server-pkg-linuxstatic-arm64.tar.gz"
+    sha256 "c791f27a4188a88a916cf51e61d12168b5dfd14b60d73eb3eba68f97ae01779c"
   end
 
   def install
