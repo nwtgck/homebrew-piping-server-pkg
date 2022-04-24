@@ -38,7 +38,7 @@ class PipingServer < Formula
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     url "https://github.com/nwtgck/piping-server-pkg/releases/download/v#{version}/piping-server-pkg-linuxstatic-arm64.tar.gz"
-    sha256 "#{digest("https://github.com/nwtgck/piping-server-pkg/releases/download/v#{version}/piping-server-pkg-linuxstatic-x64.tar.gz")}"
+    sha256 "#{digest("https://github.com/nwtgck/piping-server-pkg/releases/download/v#{version}/piping-server-pkg-linuxstatic-arm64.tar.gz")}"
   end
 
   def install
